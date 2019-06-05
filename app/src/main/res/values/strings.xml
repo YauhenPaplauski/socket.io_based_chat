@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">ChatApp</string>
+
+    <string name="action_send">Send</string>
+    <string name="hint_message">Type here to chat</string>
+    <string name="hint_nickname">Guest</string>
+    <string name="connect">Connected</string>
+    <string name="disconnect">Disconnected, Please check your internet connection</string>
+    <string name="error_connect">Failed to connect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="disconnected">diconnected</string>
+    <string name="error_connecting">Error connecting</string>
+    <string name="enter_name">Fill user name, please</string>
+    <string name="nickname_placeholder">%s:</string>
+
+</resources>

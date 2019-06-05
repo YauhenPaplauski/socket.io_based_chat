@@ -34,8 +34,17 @@ class MainFragment : Fragment() {
         mAdapter = MessageAdapter(requireContext())
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
+    override fun onResume() {
+        super.onResume()
+        mSocket = ChatApplication.instance.socket?.let {
+            for (item in events)
+                it.on(item.first, item.second)
+            it.connect()
+        }
+    }
+
+    override fun onPause() {
+        super.onPause()
         mSocket?.let {
             it.disconnect()
             for (item in events)
@@ -68,11 +77,6 @@ class MainFragment : Fragment() {
 
         btnSend.setOnClickListener { attemptSend() }
         initEvents()
-        mSocket = ChatApplication.instance.socket?.let {
-            for (item in events)
-                it.on(item.first, item.second)
-            it.connect()
-        }
     }
 
     private fun initEvents() {
